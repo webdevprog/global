@@ -1,6 +1,9 @@
 @import "_mixins/commonmixins.scss";
 
-@include font-face("roboto-example", "../fonts/RobotoRegular/RobotoRegular");
-@include font-face("roboto-example", "../fonts/RobotoBold/RobotoBold", bold);
-@include font-face("FontAwesome 4", "../fonts/FontAwesome/4/fontawesome-webfont");
-@include font-face("FontAwesome", "../fonts/FontAwesome/5/fa-regular-400");
+@include font-face("Proxima Nova", "../fonts/ProximaNovaLight/ProximaNovaLight", 300);
+@include font-face("Proxima Nova", "../fonts/ProximaNovaRegular/ProximaNovaRegular", 400);
+@include font-face("Proxima Nova", "../fonts/ProximaNovaBold/ProximaNovaBold", 600);
+
+@include font-face("Proxima Nova Black", "../fonts/ProximaNovaBlack/ProximaNovaBlack", 400);
+
+@include font-face("AvenirLT Black", "../fonts/AvenirLTBlack/AvenirLTBlack", 400);
