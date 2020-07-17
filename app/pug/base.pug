@@ -12,10 +12,13 @@ html(lang="en")
 
     body(class=pageClass)
         .wrapper
-            .container
-                include layout/header.pug
+            .wrapper-content
+                .container
+                    include layout/header.pug
 
-                main
-                    block content
+                    main.content-main
+                        nav.nav-inner.content-main__nav
+                        block content
+            .wrapper-nav
     
         script(src="js/scripts.min.js")

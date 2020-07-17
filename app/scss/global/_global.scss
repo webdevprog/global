@@ -32,3 +32,12 @@ body {
 	margin: 0 60px;
 }
 
+.wrapper {
+	overflow: hidden;
+	touch-action: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+
