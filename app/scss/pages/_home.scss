@@ -2,12 +2,17 @@
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    height: 100vh;
+    padding-top: $height-header;
     &__sections {
         flex-grow: 1;
         padding: 0 30px;
     }
+
     &__nav {
         flex-shrink: 1;
     }
+}
+
+.sections {
+    height: $height-header-calc;
 }

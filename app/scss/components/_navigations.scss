@@ -1,3 +1,56 @@
+.nav-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: $height-header-calc;
+    padding: 0 30px 0 60px;
+    &:before {
+        content: '';
+        @include center('vertical');
+        height: 90%;
+        left: 35px;
+        width: 1px;
+        background-color: rgba($color-white, .15);
+    }
+    .swiper-pagination-bullet {
+        position: relative;
+        width: auto;
+        height: auto;
+        background: transparent;
+        color: transparent;
+        font-size: 14px;
+        font-weight: $font-weight-light;
+        opacity: 1;
+        &:before {
+            content: attr(data-index);
+            @include center('vertical');
+            left: 0;
+            color: $color-white;
+            transition: all .5s linear;
+        }
+        &:after {
+            content: '';
+            @include center('vertical');
+            left: -27px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: rgba($color-white, .3);
+        }
+        &-active {
+            color: $color-white;
+            transition: all .5s linear;
+            &:before {
+                left: -60px;
+            }
+            &:after {
+                background-color: $color-primary;
+            }
+        }
+    }
+}
+
 .nav-outter {
     &__list {
         @include clear-list-style();

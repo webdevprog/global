@@ -114,3 +114,7 @@ $size-social: 40px;
 $border-radius-social: 5px; 
 $color-social: $color-primary;
 $color-hover-social: #01ABCE;
+
+
+$height-header: 60px;
+$height-header-calc: calc(var(--vh, 1vh) * 100 - #{$height-header});
