@@ -1,0 +1,30 @@
+.nav-outter {
+    &__list {
+        @include clear-list-style();
+        text-align: right;
+        max-width: 300px;
+    }
+    &__item {
+        display: inline-block;
+        position: relative;
+        font-family: $font-family-title;
+        font-size: 55px;
+        line-height: 1.4;
+        flex-grow: 0;
+        text-transform: capitalize;
+        &:before {
+            content: '';
+            @include center('vertical');
+            width: 0%;
+            height: 14px;
+            background: $color-primary;
+            transition: width .5s linear;
+        }
+        &:hover, &__item--active {
+            &:before {
+                width: 100%;
+            }
+            cursor: pointer;
+        }
+    }
+}
