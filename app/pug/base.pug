@@ -11,7 +11,7 @@ html(lang="en")
             - var pageClass = "";
 
     body(class=pageClass)
-        .wrapper
+        .wrapper.wrapper--open
             .wrapper-content
                 .container
                     include layout/header.pug
@@ -20,5 +20,6 @@ html(lang="en")
                         nav.nav-inner.content-main__nav
                         block content
             .wrapper-nav
-    
+                nav.nav-outter
+                    ul.nav-outter__list
         script(src="js/scripts.min.js")

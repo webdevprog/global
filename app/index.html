@@ -7,7 +7,7 @@
     <title>base</title>
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper wrapper--open">
       <div class="wrapper-content">
         <div class="container">
           <header class="header">
@@ -26,10 +26,10 @@
             <nav class="nav-inner content-main__nav"></nav>
             <div class="swiper-container content-main__sections">
               <div class="swiper-wrapper">
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-name="home">
                   <h1>hometes</h1>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-name="about">
                   <h1>about</h1>
                 </div>
               </div>
@@ -37,7 +37,11 @@
           </main>
         </div>
       </div>
-      <div class="wrapper-nav"></div>
+      <div class="wrapper-nav">
+        <nav class="nav-outter">
+          <ul class="nav-outter__list"></ul>
+        </nav>
+      </div>
     </div>
     <script src="js/scripts.min.js"></script>
   </body>

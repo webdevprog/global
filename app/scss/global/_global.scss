@@ -9,6 +9,7 @@
 
 html {
 	font-size: 16px;
+	height: 100%;
 	@include media-breakpoint-down(sm) { 
 		font-size: 14px;
 	}
@@ -22,7 +23,7 @@ body {
 	font-family: $default-font;
 	color: $color-white;
 	background-color: $color-secondary;
-	height: 100vh;
+	height: 100%;
 	overflow: hidden;
 	font-weight: 400;
 }
@@ -34,9 +35,34 @@ body {
 
 .wrapper {
 	overflow: hidden;
-	touch-action: none;
-    user-select: none;
-    -webkit-user-drag: none;
+	perspective: 1500px;
+	transform-origin: center;
+	height: 100%;
+	&--open {
+		.wrapper-content {
+			touch-action: none;
+			user-select: none;
+			-webkit-user-drag: none;
+			transform: translateZ(-1800px) translateX(-50%) rotateY(45deg);
+			max-height: 100%;
+			border: 30px solid $color-primary;
+			transition: transform 1.5s linear;
+		}
+	}
+	&-content {
+		touch-action: none;
+		user-select: none;
+		-webkit-user-drag: none;
+		transition: transform 1.5s linear;
+	}
+
+	&-nav {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translate(0, -50%);	
+		width: 50%;
+	}
 }
 
 

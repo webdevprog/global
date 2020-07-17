@@ -3,7 +3,7 @@ extends ../base.pug
 block content
     .swiper-container.content-main__sections
         .swiper-wrapper
-            .swiper-slide
+            div(data-name="home").swiper-slide
                 include ../sections/home.pug
-            .swiper-slide
+            div(data-name="about").swiper-slide
                 include ../sections/about.pug
