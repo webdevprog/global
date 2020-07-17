@@ -20,27 +20,15 @@ body {
 	position: relative;
 	line-height: 1.65;
 	font-family: $default-font;
-	overflow-x: hidden;
-	color: $color-primary;
+	color: $color-white;
+	background-color: $color-secondary;
+	height: 100vh;
+	overflow: hidden;
 	font-weight: 400;
 }
 
-.img-responsive {
-	display: block;
-	max-width: 100%;
-	height: auto;
-	&.img-width {
-		width: 100%;
-	}
-	&.right {
-		float: right;
-		margin-left: 15px;
-		@include media-breakpoint-down(md) {
-			float: none;
-			display: block;
-			margin: auto;
-			margin-bottom: $spacer;
-		}
-	}
+.container {
+	max-width: 1600px;
+	margin: 0 60px;
 }
 
