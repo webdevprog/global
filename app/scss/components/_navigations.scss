@@ -20,7 +20,7 @@
             background: $color-primary;
             transition: width .5s linear;
         }
-        &:hover, &__item--active {
+        &:hover, &--active {
             &:before {
                 width: 100%;
             }

@@ -46,22 +46,27 @@ body {
 			transform: translateZ(-1800px) translateX(-50%) rotateY(45deg);
 			max-height: 100%;
 			border: 30px solid $color-primary;
-			transition: transform 1.5s linear;
+			transition: transform .5s linear;
+		}
+		.wrapper-nav {
+			right: 0;
+			transition: right .5s linear;	
 		}
 	}
 	&-content {
 		touch-action: none;
 		user-select: none;
 		-webkit-user-drag: none;
-		transition: transform 1.5s linear;
+		transition: transform .5s linear;
 	}
 
 	&-nav {
 		position: absolute;
 		top: 50%;
-		right: 0;
+		right: -100%;
 		transform: translate(0, -50%);	
 		width: 50%;
+		transition: right .5s linear;
 	}
 }
 
