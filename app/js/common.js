@@ -2,17 +2,12 @@ $(function () {
 	var sectionsSwiper = new Swiper('.swiper-container', {
 		fadeEffect: { crossFade: true },
 		autoHeight: true,
-		calculateHeight: false,
 		direction: 'vertical',
-		loop: false,
 		slidesPerView: 1,
-		spaceBetween: 0,
-		slidesPerColumnFill: 'row',
 		allowTouchMove: false,
 		mousewheel: {
 			eventsTarget: '.wrapper-content'
 		},
-		followFinger: true,
 		effect: 'fade',
 		pagination: {
 			el: '.nav-inner',
