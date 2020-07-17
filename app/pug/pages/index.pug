@@ -1,10 +1,9 @@
 extends ../base.pug
 
-block titleSite
-    title= pages.home.title 
-
-block variables
-    - var pageClass = "home";
-
 block content
-    h1= pages.home.title
+    .swiper-container
+        .swiper-wrapper
+            .swiper-slide
+                include ../sections/home.pug
+            .swiper-slide
+                include ../sections/about.pug

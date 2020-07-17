@@ -22,10 +22,8 @@ var syntax = 'scss', // Syntax: sass or scss;
 gulp.task('browser-sync', function() {
 	browserSync({
 		server: {
-			baseDir: 'app'
+			baseDir: 'app',
 		},
-		notify: false,
-		open: true,
 		// online: false, // Work Offline Without Internet Connection
 		// tunnel: true, tunnel: "projectname", // Demonstration page: http://projectname.localtunnel.me
 	})

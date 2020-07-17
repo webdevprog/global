@@ -11,10 +11,11 @@ html(lang="en")
             - var pageClass = "";
 
     body(class=pageClass)
-        include layout/header.pug
-        
-        block content
+        .wrapper
+            .container
+                include layout/header.pug
 
-        include layout/footer.pug
+                main
+                    block content
     
-    script(src="js/scripts.min.js")
+        script(src="js/scripts.min.js")
