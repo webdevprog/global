@@ -38,20 +38,30 @@
         position: relative;
         color: $color-white;
         padding: 5px calc((#{$spacer} * 2) + 14px) 5px ($spacer * 2);
-        span {
-            position: relative;
-            z-index: 20;
-        }
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 70%;
-            height: 100%;
-            background-color: $color-primary;
-            z-index: 10;
-            transition: width .5s ease-in-out;
+
+        &_blue {
+            span {
+                position: relative;
+                z-index: 20;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 70%;
+                height: 100%;
+                background-color: $color-primary;
+                z-index: 10;
+                transition: width .5s ease-in-out;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
         }
 
         &:after {
@@ -62,13 +72,15 @@
             right: 14px;
             background: url(/img/arrow.svg) no-repeat;
             z-index: 10;
+            transition: right .5s ease-in-out;
         }
 
         &:hover {
-            &:before {
-                width: 100%; 
+            &:after {
+                right: 0;
             }
         }
+
     }
 
     &_size_s {
@@ -82,7 +94,7 @@
         padding: $spacer / 2 ($spacer * 2);
     }
 
-    &_size_l  {
+    &_size_l {
         font-size: $font-size-lg-regular;
         padding: $spacer ($spacer * 3);
     }

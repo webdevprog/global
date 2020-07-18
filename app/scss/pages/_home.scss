@@ -66,6 +66,7 @@
             &__btn {
                 @extend .btn;
                 @extend .btn-arrow;
+                @extend .btn-arrow_blue;
             }
         }
 
@@ -220,5 +221,102 @@
             }
 
         }
+    }
+
+    &-about {
+        background: url(../img/about-bg.png) no-repeat right center / contain;
+
+        &__title {
+            display: inline-block;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                right: 80px;
+                top: 63px;
+                width: 25px;
+                height: 25px;
+                background-color: $color-primary;
+                border-radius: 50%;
+            }
+
+            &:after {
+                @include css-triangle($color-primary, up, $size: 10px, $position: absolute, $round: false);
+                transform: rotate(-35deg);
+            }
+
+            span {
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                background-color: $color-primary;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    right: -20px;
+                    top: 0;
+                    width: 15px;
+                    height: 15px;
+                    background-color: $color-primary;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        &-card {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 800px;
+            margin: $spacer * 2 0;
+            gap: 20px;
+
+            @include media-breakpoint-down(sm) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            &-item {
+                position: relative;
+                border: 10px solid $color-primary;
+
+                &:last-child {
+                    @include media-breakpoint-down(sm) {
+                        grid-column-start: 1;
+                        grid-column-end: 3;
+                    }
+                }
+
+                &:hover {
+                    .section-about-card-item__title {
+                        bottom: 0;
+                        background-color: rgba($color-primary, .9);
+                        padding: 2px 5px;
+                    }
+                }
+
+                &__photo {
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                &__title {
+                    @extend .title-h4;
+                    font-weight: $font-weight-bold;
+                    position: absolute;
+                    bottom: -30px;
+                    left: 0;
+                    transition: all .5s linear;
+                    a {
+                        color: $color-white;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        &__btn {
+            @extend .btn;
+            @extend .btn-arrow;
+        }
+
     }
 }

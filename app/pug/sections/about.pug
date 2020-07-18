@@ -1,1 +1,10 @@
-h1 about
+h2.section-about__title !{section.title} <span></span>
+div
+    a(href=section.btnLink).section-about__btn= section.btnText
+.section-about-card
+    for item in section.items
+        .section-about-card-item
+            img(src=item.photoUrl).section-about-card-item__photo
+            .section-about-card-item__title
+                a(href="#")= item.title
+

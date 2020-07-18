@@ -204,6 +204,12 @@ Mixin:
   }
 }
 
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
 $breakpoints: (
   xs: 480px,
   sm: 768px,
