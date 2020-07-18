@@ -3,6 +3,7 @@
     flex-wrap: nowrap;
     align-items: center;
     padding-top: $height-header;
+
     &__sections {
         flex-grow: 1;
     }
@@ -20,7 +21,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     &-container {
+        position: relative;
+        width: 100%;
         max-width: 1200px;
     }
 
@@ -45,6 +49,7 @@
 
             &__photo {
                 width: auto;
+
                 @include media-breakpoint-down(md) {
                     position: absolute;
                     z-index: 10;
@@ -52,6 +57,7 @@
                     right: 0;
                     height: 300px;
                 }
+
                 @include media-breakpoint-down(sm) {
                     display: none;
                 }
@@ -62,6 +68,7 @@
                 @extend .btn-arrow;
             }
         }
+
         &-intro-advantage {
             position: relative;
             overflow: hidden;
@@ -70,12 +77,15 @@
             border-top: 1px solid rgba($color-white, .15);
             padding-top: ($spacer * 2);
             gap: 20px;
+
             @include media-breakpoint-down(sm) {
                 grid-template-columns: 1fr;
             }
+
             &-item {
                 position: relative;
                 opacity: .2;
+
                 &:before {
                     content: '';
                     position: absolute;
@@ -84,26 +94,131 @@
                     height: 8px;
                     background-color: $color-primary;
                     transition: all .5s linear;
+
                     @include media-breakpoint-down(sm) {
                         display: none;
                     }
                 }
+
                 transition: all .5s linear;
+
                 &:hover {
                     opacity: 1;
                     transition: all .5s linear;
+
                     &:before {
                         top: -33px;
                         transition: all .5s linear;
                     }
                 }
+
                 &__title {
                     @extend .title-h4;
                 }
-                &__desc {
 
+                &__desc {}
+            }
+        }
+    }
+
+    &-works {
+        &__title {
+            @extend .title-h3;
+            text-align: center;
+            margin-bottom: $spacer * 4;
+        }
+
+        &-slider {
+
+            &-outter {
+                padding: 0 50px;
+            }
+
+            &-wrapper {
+                padding: 50px 0 0;
+            }
+
+            &-button {
+
+                &__prev,
+                &__next {
+                    background-color: $color-dark;
+                    border-radius: 50%;
+                    height: 55px;
+                    width: 55px;
+
+                    &:after {
+                        content: '';
+                        color: transparent;
+                        @include center('both');
+                        background: url(/img/arrow.svg) no-repeat;
+                        width: 18px;
+                        height: 15px;
+                    }
+                }
+
+                &__prev {
+                    left: 0;
+                    transform: rotate(180deg);
+                    transform-origin: 50% 50%;
+                }
+
+                &__next {
+                    right: 0;
                 }
             }
+
+            &-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &.swiper-slide-next {
+                    @include media-breakpoint-up(md) {
+                        position: relative;
+                        top: -50px;
+                    }
+
+                    .section-works-slider-item__photo {
+                        @include media-breakpoint-up(md) {
+                            width: 250px;
+                            height: 250px;
+                        }
+
+                        @include media-breakpoint-up(lg) {
+                            width: 300px;
+                            height: 300px;
+                        }
+                    }
+                }
+
+                &__title {
+                    @extend .title-h4;
+                }
+
+                &__photo {
+                    height: 150px;
+                    width: 150px;
+                    border-radius: 50%;
+                    margin-bottom: $spacer;
+
+                    @include media-breakpoint-down(sm) {
+                        height: 250px;
+                        width: 250px;
+                    }
+
+                    @include media-breakpoint-up(lg) {
+                        height: 200px;
+                        width: 200px;
+                    }
+                }
+
+                &__desc {
+                    text-align: center;
+                    font-size: $font-size-regular;
+                }
+            }
+
         }
     }
 }

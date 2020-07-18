@@ -30,22 +30,27 @@
             ]
         },
         {
-            name: 'work',
+            name: 'works',
             title: 'Selected work',
             works: [
                 {
                     title: 'Metiew & Smith',
-                    photoUrl: 'img/work-1.jpg',
+                    photoUrl: 'img/work-1.png',
                     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
                 },
                 {
                     title: 'Victory',
-                    photoUrl: 'img/work-2.jpg',
+                    photoUrl: 'img/work-2.png',
                     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
                 },
                 {
                     title: 'Alex nowak',
-                    photoUrl: 'img/work-3.jpg',
+                    photoUrl: 'img/work-3.png',
+                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
+                },
+                {
+                    title: 'Alex nowak',
+                    photoUrl: 'img/work-2.jpg',
                     desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
                 },
             ]
@@ -105,8 +110,8 @@ mixin dynamicPath(path, data)
             include ./sections/home.pug
         when "about"
             include ./sections/about.pug
-        when "work"
-            include ./sections/work.pug
+        when "works"
+            include ./sections/works.pug
         when "contact"
             include ./sections/contact.pug
         when "hire"

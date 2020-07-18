@@ -4,7 +4,7 @@ $(function () {
 	// Then we set the value in the --vh custom property to the root of the document
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-	var sectionsSwiper = new Swiper('.swiper-container', {
+	var sectionsSwiper = new Swiper('.sections', {
 		effect: 'fade',
 		autoHeight: true,
 		fadeEffect: { crossFade: true },
@@ -46,6 +46,33 @@ $(function () {
 			},
 		},
 	});
+
+	var worksSwiper = new Swiper('.section-works-slider', {
+		autoHeight: true,
+		slidesPerView: 3,
+		spaceBetween: 30,
+		allowTouchMove: false,
+		navigation: {
+			nextEl: '.section-works-slider-button__next',
+			prevEl: '.section-works-slider-button__prev',
+		},
+		breakpoints: {
+			0: {
+				slidesPerView: 1,
+				spaceBetween: 0
+			  },
+			768: {
+			  slidesPerView: 2,
+			  spaceBetween: 0
+			},
+			// when window width is >= 640px
+			992: {
+			  slidesPerView: 3,
+			  spaceBetween: 20
+			}
+		  }
+	});
+
 	//navigation outter change section
 	$('.nav-outter .nav-outter__item').click(function () {
 		let itemMenu = $(this),
@@ -60,11 +87,13 @@ $(function () {
 		wrapper.removeClass('wrapper--open');
 		hamburger.removeClass('is-active');
 	});
+
 	//open outter menu
 	$('.hamburger').click(function () {
 		$('.wrapper').toggleClass('wrapper--open');
 		$(this).toggleClass('is-active');
 	});
+
 	//when section change with scroll
 	sectionsSwiper.on('slideChange', function () {
 		let currentIndex = sectionsSwiper.activeIndex,
@@ -79,9 +108,13 @@ $(function () {
 		let vh = window.innerHeight * 0.01;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 	});
+
 	//fixes bug when change orientation, recalculete heigth swiperSlide
 	window.addEventListener('orientationchange', () => {
-		setTimeout(() => { sectionsSwiper.update(); }, 300)
+		setTimeout(() => { 
+			sectionsSwiper.update();  
+			worksSwiper.update();
+		}, 300)
 	});
 
 });

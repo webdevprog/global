@@ -1,0 +1,13 @@
+h2.section-works__title= section.title
+.swiper-button-prev.section-works-slider-button__prev
+.swiper-button-next.section-works-slider-button__next
+
+.section-works-slider-outter
+    .swiper-container.section-works-slider
+        .swiper-wrapper.section-works-slider-wrapper
+            for work in section.works
+                .swiper-slide.section-works-slider-item
+                    a(href="#")
+                        img(src=work.photoUrl).section-works-slider-item__photo
+                    h4.section-works-slider-item__title= work.title
+                    .section-works-slider-item__desc= work.desc
