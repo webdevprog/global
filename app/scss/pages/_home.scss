@@ -28,7 +28,9 @@
         &-intro-banner {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+            position: relative;
             align-items: center;
+
             &__col {
                 &_right {
                     text-align: right;
@@ -36,21 +38,33 @@
             }
 
             &__title {
+                position: relative;
+                z-index: 20;
                 @extend .title-h1;
             }
 
             &__photo {
                 width: auto;
+                @include media-breakpoint-down(md) {
+                    position: absolute;
+                    z-index: 10;
+                    bottom: 0;
+                    right: 0;
+                    height: 300px;
+                }
                 @include media-breakpoint-down(sm) {
                     display: none;
                 }
             }
 
             &__btn {
-
+                @extend .btn;
+                @extend .btn-arrow;
             }
         }
         &-intro-advantage {
+            position: relative;
+            overflow: hidden;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             border-top: 1px solid rgba($color-white, .15);
@@ -60,9 +74,28 @@
                 grid-template-columns: 1fr;
             }
             &-item {
+                position: relative;
                 opacity: .2;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: -50px;
+                    width: 30px;
+                    height: 8px;
+                    background-color: $color-primary;
+                    transition: all .5s linear;
+                    @include media-breakpoint-down(sm) {
+                        display: none;
+                    }
+                }
+                transition: all .5s linear;
                 &:hover {
-
+                    opacity: 1;
+                    transition: all .5s linear;
+                    &:before {
+                        top: -33px;
+                        transition: all .5s linear;
+                    }
                 }
                 &__title {
                     @extend .title-h4;

@@ -1,12 +1,12 @@
 .btn {
-    font-size: $font-size-regular;
-    padding: ($spacer / 2) ($spacer * 2.5);
-    text-transform: uppercase;
     display: inline-block;
-    border-radius: 3px;
+    font-size: $font-size-regular;
+    padding: 5px ($spacer * 2);
+    text-transform: uppercase;
+    text-decoration: none;
     border: none;
-    cursor: pointer;
     transition: all 0.3s;
+    cursor: pointer;
 
     &:hover {
         color: $color-white;
@@ -31,6 +31,43 @@
         &:hover {
             color: $color-white;
             background: $color-btn-hover-secondary;
+        }
+    }
+
+    &-arrow {
+        position: relative;
+        color: $color-white;
+        padding: 5px calc((#{$spacer} * 2) + 14px) 5px ($spacer * 2);
+        span {
+            position: relative;
+            z-index: 20;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100%;
+            background-color: $color-primary;
+            z-index: 10;
+            transition: width .5s ease-in-out;
+        }
+
+        &:after {
+            content: '';
+            @include center('vertical');
+            width: 18px;
+            height: 14px;
+            right: 14px;
+            background: url(/img/arrow.svg) no-repeat;
+            z-index: 10;
+        }
+
+        &:hover {
+            &:before {
+                width: 100%; 
+            }
         }
     }
 
