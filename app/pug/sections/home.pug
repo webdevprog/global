@@ -1,9 +1,9 @@
 .section-home-intro-banner
     .section-home-intro-banner__col
-        .section-home-intro-banner__title= section.title
+        h1.section-home-intro-banner__title !{section.title}
         a(href=section.btnLink).section-home-intro-banner__btn= section.btnText
 
-    .section-home-intro-banner__col
+    .section-home-intro-banner__col.section-home-intro-banner__col_right
         img(src=section.photoUrl).section-home-intro-banner__photo
 .section-home-intro-advantage
     for advantage in section.advantages

@@ -1,4 +1,7 @@
 .nav-inner {
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
     position: relative;
     display: flex;
     flex-direction: column;

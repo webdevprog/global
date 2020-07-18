@@ -5,4 +5,5 @@ block content
         .swiper-wrapper
             for section in sections
                 div(data-name=section.name, class="section section-"+section.name+" swiper-slide")
-                    +dynamicPath(section.name, section)
+                    .section-container
+                        +dynamicPath(section.name, section)

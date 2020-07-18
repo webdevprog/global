@@ -20,7 +20,7 @@ html {
 }
 
 body {
-	font-size: $base-font;
+	font-size: $font-size-regular;
 	min-width: 320px;
 	position: relative;
 	line-height: 1.65;
@@ -64,6 +64,9 @@ body {
 		outline: 30px solid $color-primary;
 		transition: transform .5s linear;
 		padding: 0 60px;
+		@include media-breakpoint-down(sm) {
+			padding: 0 15px;
+		}
 	}
 
 	&-nav {

@@ -1,6 +1,12 @@
 $(function () {
+	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+	let vh = window.innerHeight * 0.01;
+	// Then we set the value in the --vh custom property to the root of the document
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
+	
 	var sectionsSwiper = new Swiper('.swiper-container', {
 		effect: 'fade',
+		autoHeight: true,
 		fadeEffect: { crossFade: true },
 		direction: 'vertical',
 		slidesPerView: 1,
@@ -14,10 +20,10 @@ $(function () {
 			renderBullet: function (index, className) {
 				let nameSlide = this.slides[index].dataset.name,
 					outterMenu = $('.nav-outter > .nav-outter__list'),
-					indexAttr = index >= 9 ? index+1 : '0'+parseInt(index+1);
+					indexAttr = index >= 9 ? index + 1 : '0' + parseInt(index + 1);
 
 				outterMenu.append(`<li class="nav-outter__item" data-index="${index}">${nameSlide}</li>`);
-				return '<span class="' + className + '" data-index="'+indexAttr+'">' + nameSlide + '</span>';
+				return '<span class="' + className + '" data-index="' + indexAttr + '">' + nameSlide + '</span>';
 			},
 		},
 		on: {
@@ -68,15 +74,16 @@ $(function () {
 		itemsOutterMenu.parent().find(`[data-index=${currentIndex}]`).addClass('nav-outter__item--active');
 	});
 
-	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-	let vh = window.innerHeight * 0.01;
-	// Then we set the value in the --vh custom property to the root of the document
-	document.documentElement.style.setProperty('--vh', `${vh}px`);
-
 	window.addEventListener('resize', () => {
 		// We execute the same script as before
 		let vh = window.innerHeight * 0.01;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
+	});
+	//fixes bug when change orientation, recalculete heigth swiperSlide
+	window.addEventListener('orientationchange', () => {
+		let vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty('--vh', `${vh}px`);
+		setTimeout(() => { sectionsSwiper.update(); }, 300)
 	});
 
 });

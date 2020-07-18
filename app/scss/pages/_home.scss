@@ -5,7 +5,6 @@
     padding-top: $height-header;
     &__sections {
         flex-grow: 1;
-        padding: 0 30px;
     }
 
     &__nav {
@@ -15,4 +14,63 @@
 
 .sections {
     height: $height-header-calc;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-container {
+        max-width: 1200px;
+    }
+
+    &-home {
+        &-intro-banner {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            &__col {
+                &_right {
+                    text-align: right;
+                }
+            }
+
+            &__title {
+                @extend .title-h1;
+            }
+
+            &__photo {
+                width: auto;
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+            }
+
+            &__btn {
+
+            }
+        }
+        &-intro-advantage {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid rgba($color-white, .15);
+            padding-top: ($spacer * 2);
+            gap: 20px;
+            @include media-breakpoint-down(sm) {
+                grid-template-columns: 1fr;
+            }
+            &-item {
+                opacity: .2;
+                &:hover {
+
+                }
+                &__title {
+                    @extend .title-h4;
+                }
+                &__desc {
+
+                }
+            }
+        }
+    }
 }
