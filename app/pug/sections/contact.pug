@@ -1,1 +1,12 @@
-h1 contact
+.section-contact-info
+    .section-contact-info-item
+        .section-contact-info__adress= section.address
+    .section-contact-info-item
+        a(href="mailto:"+section.email).section-contact-info__mail= section.email
+    .section-contact-info-item
+        a(href="callto:"+section.phone).section-contact-info__phone= section.phone
+    .section-contact-info-item
+        .section-contact-link
+            for item in section.social
+                .section-contact-link__item
+                    a(href=item.link)= item.title

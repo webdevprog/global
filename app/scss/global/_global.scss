@@ -58,12 +58,25 @@ body {
 		}
 	}
 	&-content {
+		position: relative;
 		touch-action: none;
 		user-select: none;
 		-webkit-user-drag: none;
 		outline: 30px solid $color-primary;
 		transition: transform .5s linear;
 		padding: 0 60px;
+		&.is-contact {
+			&:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				transform: scale(1.5);
+				background: url(../img/contact-bg.png) no-repeat center/ cover;	
+			}
+		}
 		@include media-breakpoint-down(sm) {
 			padding: 0 15px;
 		}

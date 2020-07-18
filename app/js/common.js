@@ -81,7 +81,16 @@ $(function () {
 				};
 
 			},
-		},
+			slideChange: function() {
+				let wrapperContent = wrapper = $('.wrapper > .wrapper-content'),
+					slideName = this.slides[this.activeIndex].dataset.name;
+				if (slideName === 'contact') {
+					wrapperContent.addClass('is-contact');
+				} else {
+					wrapperContent.removeClass('is-contact');
+				}
+			}
+		}
 	});
 
 	var worksSwiper = new Swiper('.section-works-slider', {
