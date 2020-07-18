@@ -1,1 +1,12 @@
-h1 hometes
+.section-home-intro-banner
+    .section-home-intro-banner__col
+        .section-home-intro-banner__title= section.title
+        a(href=section.btnLink).section-home-intro-banner__btn= section.btnText
+
+    .section-home-intro-banner__col
+        img(src=section.photoUrl).section-home-intro-banner__photo
+.section-home-intro-advantage
+    for advantage in section.advantages
+        .section-home-intro-advantage-item
+            .section-home-intro-advantage-item__title= advantage.title
+            .section-home-intro-advantage-item__desc= advantage.desc

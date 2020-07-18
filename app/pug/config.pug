@@ -5,3 +5,111 @@
             title: "Home",
         }
     }
+
+- 
+    var sections = [
+        {
+            name: 'home',
+            title: 'Your next interactive experience',
+            photoUrl: 'img/banner-intro.png',
+            btnText: 'hire us',
+            btnLink: '#',
+            advantages: [
+                {
+                    title: 'Metiew & Smith',
+                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
+                },
+                {
+                    title: 'Fantasy interactive',
+                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
+                },
+                {
+                    title: 'Paul & shark',
+                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
+                },
+            ]
+        },
+        {
+            name: 'work',
+            title: 'Selected work',
+            works: [
+                {
+                    title: 'Metiew & Smith',
+                    photoUrl: 'img/work-1.jpg',
+                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
+                },
+                {
+                    title: 'Victory',
+                    photoUrl: 'img/work-2.jpg',
+                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
+                },
+                {
+                    title: 'Alex nowak',
+                    photoUrl: 'img/work-3.jpg',
+                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing eli'
+                },
+            ]
+        },
+        {
+            name: 'about',
+            title: 'We believe in passionate people',
+            btnText: 'career',
+            btnLink: '#',
+            items: [
+                {
+                    title: 'Metiew & Smith',
+                    photoUrl: 'img/work-1.jpg',
+                },
+                {
+                    title: 'Victory',
+                    photoUrl: 'img/work-2.jpg',
+                },
+                {
+                    title: 'Alex nowak',
+                    photoUrl: 'img/work-3.jpg',
+                },
+            ]
+        },
+        {
+            name: 'contact',
+            address: 'Pawia 5,31-154 Kraków, Polanrd',
+            email: 'ouremail@gmail.com',
+            phone: '+48 12 628 75 60',
+            btnLink: '#',
+            social: [
+                {
+                    title: 'Behance',
+                    link: '#',
+                },
+                {
+                    title: 'dribbble',
+                    link: '#',
+                },
+                {
+                    title: 'Contact Us',
+                },
+            ]
+        },
+            {
+            name: 'hire',
+            title: 'You want us to do',
+            formRadio: ['App Design', 'Graphic Design', 'Motion Design', 'UX Design', 'Webdesign', 'Marketing'],
+            formBtn: 'Send request'
+        },
+    ]
+
+mixin dynamicPath(path, data)
+    - var section = data;
+    case path
+        when "home"
+            include ./sections/home.pug
+        when "about"
+            include ./sections/about.pug
+        when "work"
+            include ./sections/work.pug
+        when "contact"
+            include ./sections/contact.pug
+        when "hire"
+            include ./sections/hire.pug
+        default
+            include ./sections/home.pug

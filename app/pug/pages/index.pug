@@ -3,13 +3,6 @@ extends ../base.pug
 block content
     .swiper-container.sections.content-main__sections
         .swiper-wrapper
-            div(data-name="Home").swiper-slide
-                include ../sections/home.pug
-            div(data-name="Work").swiper-slide
-                include ../sections/work.pug
-            div(data-name="About").swiper-slide
-                include ../sections/about.pug
-            div(data-name="Contact").swiper-slide
-                include ../sections/contact.pug
-            div(data-name="Hire").swiper-slide
-                include ../sections/hire.pug
+            for section in sections
+                div(data-name=section.name, class="section section-"+section.name+" swiper-slide")
+                    +dynamicPath(section.name, section)
