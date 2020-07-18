@@ -30,19 +30,56 @@ $(function () {
 			init: function () {
 				let _self = this;
 
-				var ts;
-				$('.wrapper-content').bind('touchstart', function (e) {
-					ts = e.originalEvent.touches[0].clientY;
-				});
+				const gestureZone = document.querySelector('.wrapper-content');
+				gestureZone.addEventListener("touchstart", startTouch, false);
+				gestureZone.addEventListener("touchmove", moveTouch, false);
 
-				$('.wrapper-content').bind('touchend', function (e) {
-					var te = e.originalEvent.changedTouches[0].clientY;
-					if (ts > te) {
-						_self.slideNext();
-					} else if (ts < te) {
-						_self.slidePrev();
+				// Swipe Up / Down / Left / Right
+				var initialX = null;
+				var initialY = null;
+
+				function startTouch(e) {
+					initialX = e.touches[0].clientX;
+					initialY = e.touches[0].clientY;
+				};
+
+				function moveTouch(e) {
+					if (initialX === null) {
+						return;
 					}
-				});
+
+					if (initialY === null) {
+						return;
+					}
+
+					var currentX = e.touches[0].clientX;
+					var currentY = e.touches[0].clientY;
+
+					var diffX = initialX - currentX;
+					var diffY = initialY - currentY;
+
+					if (Math.abs(diffX) > Math.abs(diffY)) {
+						// sliding horizontally
+						if (diffX > 0) {
+							// swiped left
+						} else {
+							// swiped right
+						}
+					} else {
+						// sliding vertically
+						if (diffY > 0) {
+							_self.slidePrev();
+						} else {
+							_self.slideNext();
+						}
+					}
+
+					initialX = null;
+					initialY = null;
+
+					e.preventDefault();
+				};
+
 			},
 		},
 	});
@@ -51,7 +88,6 @@ $(function () {
 		autoHeight: true,
 		slidesPerView: 3,
 		spaceBetween: 30,
-		allowTouchMove: false,
 		navigation: {
 			nextEl: '.section-works-slider-button__next',
 			prevEl: '.section-works-slider-button__prev',
@@ -60,17 +96,17 @@ $(function () {
 			0: {
 				slidesPerView: 1,
 				spaceBetween: 0
-			  },
+			},
 			768: {
-			  slidesPerView: 2,
-			  spaceBetween: 0
+				slidesPerView: 2,
+				spaceBetween: 0
 			},
 			// when window width is >= 640px
 			992: {
-			  slidesPerView: 3,
-			  spaceBetween: 20
+				slidesPerView: 3,
+				spaceBetween: 20
 			}
-		  }
+		}
 	});
 
 	//navigation outter change section
@@ -111,8 +147,8 @@ $(function () {
 
 	//fixes bug when change orientation, recalculete heigth swiperSlide
 	window.addEventListener('orientationchange', () => {
-		setTimeout(() => { 
-			sectionsSwiper.update();  
+		setTimeout(() => {
+			sectionsSwiper.update();
 			worksSwiper.update();
 		}, 300)
 	});
