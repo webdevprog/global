@@ -59,6 +59,7 @@
         @include clear-list-style();
         text-align: right;
         max-width: 300px;
+        padding-right: 20px;
     }
     &__item {
         position: relative;
@@ -66,8 +67,12 @@
         font-family: $font-family-title;
         font-size: 55px;
         line-height: 1.4;
-        flex-grow: 0;
+        float: right;
+        clear: both;
         text-transform: capitalize;
+        @include media-breakpoint-down(xs) {
+            font-size: 35px;
+        }
         &:before {
             content: '';
             @include center('vertical');

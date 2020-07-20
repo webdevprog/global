@@ -80,15 +80,28 @@ $(function () {
 				};
 
 			},
-			slideChange: function() {
+			slideChange: function () {
 				let wrapperContent = wrapper = $('.wrapper > .wrapper-content'),
 					slideName = this.slides[this.activeIndex].dataset.name,
+					currentIndex = sectionsSwiper.activeIndex,
+					itemsOutterMenu = $('.nav-outter .nav-outter__item'),
 					audio = new Audio('../dist/sounds/swipe.mp3');
-				if (slideName === 'contact') {
-					wrapperContent.addClass('is-contact');
-				} else {
+				
 					wrapperContent.removeClass('is-contact');
+					$('.header__btn').show();
+
+				switch(slideName) {
+					case 'contact' :
+						wrapperContent.addClass('is-contact');
+						break;
+					case 'hire' :
+						$('.header__btn').hide();
+						break;
+					default:
 				}
+
+				itemsOutterMenu.removeClass('nav-outter__item--active');
+				itemsOutterMenu.parent().find(`[data-index=${currentIndex}]`).addClass('nav-outter__item--active');
 
 				audio.play();
 			}
@@ -120,6 +133,11 @@ $(function () {
 		}
 	});
 
+	$('a[href="#hire"]').click(function(e) {
+		e.preventDefault();
+		sectionsSwiper.slideTo(5);
+	});
+
 	//navigation outter change section
 	$('.nav-outter .nav-outter__item').click(function () {
 		let itemMenu = $(this),
@@ -139,15 +157,6 @@ $(function () {
 	$('.hamburger').click(function () {
 		$('.wrapper').toggleClass('wrapper--open');
 		$(this).toggleClass('is-active');
-	});
-
-	//when section change with scroll
-	sectionsSwiper.on('slideChange', function () {
-		let currentIndex = sectionsSwiper.activeIndex,
-			itemsOutterMenu = $('.nav-outter .nav-outter__item');
-
-		itemsOutterMenu.removeClass('nav-outter__item--active');
-		itemsOutterMenu.parent().find(`[data-index=${currentIndex}]`).addClass('nav-outter__item--active');
 	});
 
 	window.addEventListener('resize', () => {
