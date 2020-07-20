@@ -76,19 +76,21 @@ $(function () {
 
 					initialX = null;
 					initialY = null;
-
 					e.preventDefault();
 				};
 
 			},
 			slideChange: function() {
 				let wrapperContent = wrapper = $('.wrapper > .wrapper-content'),
-					slideName = this.slides[this.activeIndex].dataset.name;
+					slideName = this.slides[this.activeIndex].dataset.name,
+					audio = new Audio('../sounds/swipe.mp3');
 				if (slideName === 'contact') {
 					wrapperContent.addClass('is-contact');
 				} else {
 					wrapperContent.removeClass('is-contact');
 				}
+
+				audio.play();
 			}
 		}
 	});
