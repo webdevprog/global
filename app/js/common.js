@@ -83,7 +83,7 @@ $(function () {
 			slideChange: function() {
 				let wrapperContent = wrapper = $('.wrapper > .wrapper-content'),
 					slideName = this.slides[this.activeIndex].dataset.name,
-					audio = new Audio('../sounds/swipe.mp3');
+					audio = new Audio('../dist/sounds/swipe.mp3');
 				if (slideName === 'contact') {
 					wrapperContent.addClass('is-contact');
 				} else {

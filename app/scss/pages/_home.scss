@@ -152,7 +152,7 @@
                         content: '';
                         color: transparent;
                         @include center('both');
-                        background: url(/img/arrow.svg) no-repeat;
+                        background: url(../img/arrow.svg) no-repeat;
                         width: 18px;
                         height: 15px;
                     }
