@@ -1,1 +1,18 @@
-h1 hire
+h3.section-hire__title= section.title
+form(autocomplete="off").section-hire-form
+    .section-hire-form-row-checkboxs
+        for checkboxName in section.formCheckboxs
+            - var nameForTag = checkboxName.replace(" ", "-");
+            .section-hire-form-checkbox-field 
+                input(type="checkbox", id=nameForTag).section-hire-form-checkbox-field__item
+                label(for=nameForTag).section-hire-form-checkbox-field__label= checkboxName
+
+    .section-hire-form-row-inputs
+        .section-hire-form-input-field
+            input(type="text", id="name" value="" onchange="this.setAttribute('value', this.value);", required).section-hire-form-input-field__item
+            label(for="name").section-hire-form-input-field__label Name
+        .section-hire-form-input-field
+            input(type="email", id="email", value="" onchange="this.setAttribute('value', this.value);", required).section-hire-form-input-field__item
+            label(for="email").section-hire-form-input-field__label Email
+
+    input(type="submit", id="submit", value="Send request").section-hire-form__btn

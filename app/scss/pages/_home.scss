@@ -229,6 +229,7 @@
         &__title {
             display: inline-block;
             position: relative;
+
             &:before {
                 content: '';
                 position: absolute;
@@ -250,6 +251,7 @@
                 width: 15px;
                 height: 15px;
                 background-color: $color-primary;
+
                 &:before {
                     content: '';
                     position: absolute;
@@ -305,6 +307,7 @@
                     bottom: -30px;
                     left: 0;
                     transition: all .5s linear;
+
                     a {
                         color: $color-white;
                         text-decoration: none;
@@ -335,31 +338,157 @@
             width: 100%;
             max-width: 350px;
             padding: $spacer * 3 0;
+
             &-item {
                 &:last-child {
                     margin-top: $spacer * 2;
                 }
+
                 &:not(:last-child) {
                     margin-bottom: $spacer / 2;
                 }
+
                 font-weight: $font-weight-bold;
+
                 a {
                     color: $color-white;
                     text-decoration: none;
                 }
             }
         }
+
         &-link {
             &__item {
                 &:not(:last-child) {
                     margin-bottom: $spacer;
                 }
+
                 a {
                     display: block;
                     text-align: center;
                     @extend .btn;
                     @extend .btn-primary;
                 }
+            }
+        }
+    }
+
+    &-hire {
+        &__title {
+            text-align: center;
+        }
+
+        &-form {
+            text-align: center;
+
+            &-row-checkboxs {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            &-row-inputs {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap; 
+                margin: $spacer * 2 0;
+            }
+
+            &-input-field {
+                margin: $spacer;
+                position: relative;
+                flex: 0 0 30%;
+                text-align: center;
+                @include media-breakpoint-down(sm) {
+                    flex: 1 1 100%;
+                }
+
+                &__label {
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                    font-size: $font-size-large;
+                    transition: top .5s linear;
+                }
+
+                &__item {
+                    display: inline-block;
+                    width: 100%;
+                    background-color: transparent;
+                    padding: $spacer 0;
+                    border: none;
+                    border-bottom: 2px solid $color-white;
+                    background: no-clip;
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-lg-regular;
+                    &:focus,
+                    &:not([value=""]) {
+                        & + label {
+                            top: -20px;
+                        }
+                    }
+                }
+            }
+
+            &-checkbox-field {
+                position: relative;
+                @include media-breakpoint-down(md) {
+                    flex: 0 1 50%;
+                }
+
+                &__label {
+                    display: flex;  
+                    align-items: center;
+                    justify-content: center;
+                    padding: $spacer calc((#{$spacer} * 2) + 25px) $spacer ($spacer * 2);
+                    border: 2px solid $color-white;
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-lg-regular;
+                    margin: $spacer;
+                    transition: all .5s linear;
+                    @include media-breakpoint-down(xs) {
+                        padding: $spacer / 2 calc((#{$spacer}) + 25px) $spacer / 2 $spacer; 
+                        margin: 2px;
+                    }
+                    &:before {
+                        content: '';
+                        position: relative;
+                        overflow: hidden;
+                        width: 20px;
+                        height: 20px;
+                        background: url(../img/check.svg) no-repeat;
+                        display: block;
+                        margin-right: 10px;
+                        transform: scale(0);
+                        transition: transform .5s linear;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                &__item {
+                    position: absolute;
+                    top: $spacer;
+                    left: $spacer;
+                    width: calc(100% - #{$spacer} * 2);
+                    height: calc(100% - #{$spacer} * 2);
+                    opacity: 0;
+                    cursor: pointer;
+                    &:checked + label {
+                        background-color: $color-primary;
+                        border: 2px solid $color-primary;
+                        &:before {
+                            
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+
+            &__btn {
+                margin-top: $spacer * 2;
             }
         }
     }
